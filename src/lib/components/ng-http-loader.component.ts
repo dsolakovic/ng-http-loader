@@ -24,10 +24,12 @@ export class NgHttpLoaderComponent implements OnInit {
     spinkit = Spinkit;
     isVisible$!: Observable<boolean>;
     visibleUntil = Date.now();
+    showBlockUi: boolean = false;
 
     @Input() backdrop = true;
     @Input() backgroundColor!: string;
     @Input() debounceDelay = 0;
+    @Input() blockUIDelay = 250;
     @Input() entryComponent: any = null;
     @Input() extraDuration = 0;
     @Input() filteredHeaders: string[] = [];
@@ -50,11 +52,14 @@ export class NgHttpLoaderComponent implements OnInit {
     private initIsvisibleObservable(): void {
         const [showSpinner$, hideSpinner$] = partition(this.pendingRequestsInterceptor.pendingRequestsStatus$, h => h);
 
+        if (this.blockUIDelay !== 0) {
+            this.showBlockUi = true
+        }
+
         this.isVisible$ = merge(
-            this.pendingRequestsInterceptor.pendingRequestsStatus$
-                .pipe(switchMap(() => showSpinner$.pipe(debounce(() => timer(this.debounceDelay))))),
-            showSpinner$
-                .pipe(switchMap(() => hideSpinner$.pipe(debounce(() => this.getVisibilityTimer$())))),
+            this.pendingRequestsInterceptor.pendingRequestsStatus$.pipe(switchMap(() => showSpinner$.pipe(debounce(() => timer(this.blockUIDelay))))),
+            this.pendingRequestsInterceptor.pendingRequestsStatus$.pipe(switchMap(() => showSpinner$.pipe(debounce(() => timer(this.debounceDelay))))),
+            showSpinner$.pipe(switchMap(() => hideSpinner$.pipe(debounce(() => this.getVisibilityTimer$())))),
             this.spinnerVisibility.visibility$
         ).pipe(
             distinctUntilChanged(),

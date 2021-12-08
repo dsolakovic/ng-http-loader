@@ -1,6 +1,6 @@
 {
-  "name": "ng-http-loader",
-  "version": "11.0.1",
+  "name": "ng-http-loader-dsolakovic",
+  "version": "11.0.2",
   "scripts": {
     "ng": "ng",
     "build": "ng build",
@@ -13,11 +13,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mpalourdio/ng-http-loader"
+    "url": "git+https://github.com/dsolakovic/ng-http-loader"
   },
   "author": {
-    "name": "Michel Palourdio",
-    "email": "mpalourdio@gmail.com"
+    "name": "Denis Solakovic",
+    "email": "dsolakovic@gmail.com"
   },
   "keywords": [
     "angular",
@@ -40,7 +40,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mpalourdio/ng-http-loader/issues"
+    "url": "https://github.com/dsolakovic/ng-http-loader/issues"
   },
   "dependencies": {
     "tslib": "^2.3.0"

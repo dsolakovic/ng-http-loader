@@ -6,6 +6,13 @@
 
     <ng-container *ngComponentOutlet="entryComponent"></ng-container>
 
+    <ui-block-overlay
+        *ngIf="showBlockUi"
+        backgroundColor="rgba(0,0,0,0);"
+    >
+
+    </ui-block-overlay>
+
     <sk-cube-grid
         *ngIf="spinner === spinkit.skCubeGrid"
         [backgroundColor]="backgroundColor">

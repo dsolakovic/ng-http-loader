@@ -12,11 +12,13 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { NgHttpLoaderComponent } from './components/ng-http-loader.component';
 import { PendingRequestsInterceptorProvider } from './services/pending-requests-interceptor.service';
 import { SPINKIT_COMPONENTS } from './spinkits';
+import { UiBlockOverlayComponent } from './components/ui-block-overlay/ui-block-overlay.component';
 
 @NgModule({
     declarations: [
         NgHttpLoaderComponent,
         ...SPINKIT_COMPONENTS,
+        UiBlockOverlayComponent,
     ],
     imports: [
         CommonModule,
@@ -24,6 +26,7 @@ import { SPINKIT_COMPONENTS } from './spinkits';
     exports: [
         NgHttpLoaderComponent,
         ...SPINKIT_COMPONENTS,
+        UiBlockOverlayComponent,
     ]
 })
 export class NgHttpLoaderModule {
