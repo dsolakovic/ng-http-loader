@@ -1,5 +1,5 @@
 {
-  "name": "ng-http-loader-dsolakovic",
+  "name": "ds-angular-loader",
   "version": "11.0.2",
   "scripts": {
     "ng": "ng",
